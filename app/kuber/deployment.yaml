@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: myapp:v2
+        image: vpankrashkin/myapp:v2.1
         env:
         - name: DATABASE_URI
           valueFrom:

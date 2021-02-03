@@ -40,7 +40,7 @@ public class UserApiController implements UserApi {
         this.jdbc = new NamedParameterJdbcTemplate(ds);
     }
 
-    public ResponseEntity<Void> createUser(@Parameter(in = ParameterIn.DEFAULT, description = "Created user object", required=true, schema=@Schema()) @Valid @RequestBody User body) {
+    public ResponseEntity createUser(@Parameter(in = ParameterIn.DEFAULT, description = "Created user object", required=true, schema=@Schema()) @Valid @RequestBody User body) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbc.update("insert into users (username, first_name, last_name, email, phone) values (:username, :first_name, :last_name, :email, :phone)", new MapSqlParameterSource()
         .addValue("username", body.getUsername())
@@ -49,8 +49,9 @@ public class UserApiController implements UserApi {
         .addValue("email", body.getEmail())
         .addValue("phone", body.getPhone()),
         keyHolder);
-        log.info("Saved with new id: {} {}", keyHolder.getKeys().get("id"), body);
-        return new ResponseEntity<Void>(HttpStatus.OK);
+        Object key = keyHolder.getKeys().get("id");
+        log.info("Saved with new id: {} : {}", key, body);
+        return ResponseEntity.ok(key);
     }
 
     public ResponseEntity<Void> deleteUser(@Parameter(in = ParameterIn.PATH, description = "ID of user", required=true, schema=@Schema()) @PathVariable("userId") Long userId) {
