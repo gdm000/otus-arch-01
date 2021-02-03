@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "b3151a1d-122f-4f42-8976-f3c517e04278",
+		"name": "User API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"username\",\r\n  \"firstName\": \"firstName\",\r\n  \"lastName\": \"lastName\",\r\n  \"email\": \"email\",\r\n  \"phone\": \"phone\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{base.url}}/otusapp/vpankrashkin/user",
+					"protocol": "http",
+					"host": [
+						"{{base.url}}"
+					],
+					"path": [
+						"otusapp",
+						"vpankrashkin",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{base.url}}/otusapp/vpankrashkin/user/1",
+					"protocol": "http",
+					"host": [
+						"{{base.url}}"
+					],
+					"path": [
+						"otusapp",
+						"vpankrashkin",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"username2\",\r\n  \"firstName\": \"firstName2\",\r\n  \"lastName\": \"lastName2\",\r\n  \"email\": \"email2\",\r\n  \"phone\": \"phone2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{base.url}}/otusapp/vpankrashkin/user/1",
+					"protocol": "http",
+					"host": [
+						"{{base.url}}"
+					],
+					"path": [
+						"otusapp",
+						"vpankrashkin",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{base.url}}/otusapp/vpankrashkin/user/1",
+					"protocol": "http",
+					"host": [
+						"{{base.url}}"
+					],
+					"path": [
+						"otusapp",
+						"vpankrashkin",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base.url",
+			"value": "arch.homework"
+		}
+	]
+}
