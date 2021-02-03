@@ -14,7 +14,13 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: vpankrashkin/myapp:v1
+        image: myapp:v2
+        env:
+        - name: DATABASE_URI
+          valueFrom:
+            secretKeyRef:
+              name: hello-secret
+              key: DATABASE_URI
         ports:
         - name: web
           containerPort: 8080

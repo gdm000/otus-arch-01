@@ -1,0 +1,15 @@
+apiVersion : v1
+kind : ConfigMap
+metadata :
+  name : hello-config
+data :
+  GREETING : Bonjour
+---
+apiVersion : v1
+kind : Secret
+metadata :
+  name : hello-secret
+type : Opaque
+data :
+  DATABASE_URI: amRiYzpwb3N0Z3Jlc3FsOi8vcG9zdGdyZXMvbXlhcHA/dXNlcj1teXVzZXImcGFzc3dvcmQ9cGFzc3dkCg==
+# DATABASE_URI : jdbc:postgresql://postgres/myapp?user=myuser&password=passwd
